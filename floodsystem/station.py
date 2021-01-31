@@ -49,3 +49,15 @@ class MonitoringStation:
             
             elif self.typical_range [0] > self.typical_range[1]:
                 return False
+
+def inconsistent_typical_range_stations(stations):
+    x = []
+
+    for station in stations:
+        if station.typical_range_consistent() == True:
+            pass
+        
+        elif station.typical_range_consistent() == False:
+            x.append(station)
+    
+    return x
