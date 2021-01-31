@@ -28,7 +28,7 @@ def test_create_monitoring_station():
     assert s.town == town
     assert s.typical_range_consistent() == True
 
-def test_inconsistent_typical_range_stations(stations):
+def test_inconsistent_typical_range_stations():
     stations = build_station_list()
     x = inconsistent_typical_range_stations(stations)
 
