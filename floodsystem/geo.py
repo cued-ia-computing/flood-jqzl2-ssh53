@@ -19,3 +19,10 @@ def stations_by_distance(stations, p):
     stations_by_distance = sorted_by_key(stations_by_distance, 2)
 
     return stations_by_distance
+
+def rivers_with_station(stations):
+    
+    rivers_with_station = {}
+
+    for station in stations:
+        rivers_with_station[station.name] = set(station.riverName)
