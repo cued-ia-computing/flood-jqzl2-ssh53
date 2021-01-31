@@ -22,7 +22,10 @@ def stations_by_distance(stations, p):
 
 def rivers_with_station(stations):
     
-    rivers_with_station = {}
+    rivers_with_station = set()
 
     for station in stations:
-        rivers_with_station[station.name] = set(station.riverName)
+        rivers_with_station.append(station.river)
+    
+    return rivers_with_station
+        
