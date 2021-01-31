@@ -26,13 +26,13 @@ def test_create_monitoring_station():
     assert s.typical_range == trange
     assert s.river == river
     assert s.town == town
-    assert s.typical_range_consistent == True
+    assert s.typical_range_consistent() == True
 
 def test_inconsistent_typical_range_stations(stations):
     stations = build_station_list()
     x = inconsistent_typical_range_stations(stations)
 
     for station in x:
-        assert station.typical_range_consistent == False
-        
+        assert station.typical_range_consistent() == False
+
     
