@@ -1,4 +1,4 @@
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import stations_by_distance, rivers_with_station, stations_by_river
 from floodsystem.stationdata import build_station_list
 
 def test_stations_by_distance():
@@ -18,4 +18,10 @@ def test_stations_by_distance():
     ('St Ives Consols Farm', 'St Ives', 450.07409071624505), ('Penzance Tesco', 'Penzance', 456.38638836619003), 
     ('Penzance Alverton', 'Penzance', 458.57727568406375), ('Penberth', 'Penberth', 467.53431870130544)]
 
-test_stations_by_distance()
+def test_rivers_with_station():
+    stations = build_station_list()
+    x = rivers_with_station(stations)
+
+def test_stations_by_river():
+    stations = build_station_list()
+    x = stations_by_river(stations)
