@@ -39,13 +39,23 @@ def stations_by_river(stations):
        stations_by_river[river] = []
 
        for station in stations:
-            if station.river == river:
-                stations_by_river[river].append(station)
+           if station.river == river:
+               stations_by_river[river].append(station)
             
             else:
                 pass
     
     return stations_by_river
+
+       
+            
+        
+   
+
+
+      
+    
+   
                
             
         
