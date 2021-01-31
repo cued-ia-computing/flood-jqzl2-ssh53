@@ -22,10 +22,12 @@ def stations_by_distance(stations, p):
 
 def rivers_with_station(stations):
     
-    rivers_with_station = set()
+    rivers_with_station = []
 
     for station in stations:
         rivers_with_station.append(station.river)
+    
+    rivers_with_station = set(rivers_with_station)
     
     return rivers_with_station
 
@@ -42,10 +44,11 @@ def stations_by_river(stations):
            if station.river == river:
                stations_by_river[river].append(station)
             
-            else:
-                pass
+           else:
+               pass
+
+   return stations_by_river
     
-    return stations_by_river
 
        
             
