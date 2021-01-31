@@ -28,4 +28,25 @@ def rivers_with_station(stations):
         rivers_with_station.append(station.river)
     
     return rivers_with_station
+
+def stations_by_river(stations):
+
+   stations_by_river = {}
+
+   rivers = rivers_with_station(stations)
+
+   for river in rivers:
+       stations_by_river[river] = []
+
+       for station in stations:
+            if station.river == river:
+                stations_by_river[river].append(station)
+            
+            else:
+                pass
+    
+    return stations_by_river
+               
+            
         
+
