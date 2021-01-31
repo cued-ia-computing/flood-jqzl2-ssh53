@@ -9,7 +9,6 @@ geographical data.
 from .utils import sorted_by_key  # noqa
 from haversine import haversine, Unit
 
-# Task 1B
 def stations_by_distance(stations, p):
     
     stations_by_distance = []
@@ -20,7 +19,3 @@ def stations_by_distance(stations, p):
     stations_by_distance = sorted_by_key(stations_by_distance, 2)
 
     return stations_by_distance
-
-
-
-
