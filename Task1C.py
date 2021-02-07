@@ -1,14 +1,14 @@
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import stations_within_radius
 from floodsystem.stationdata import build_station_list
 
 def run():
     
     stations = build_station_list()
-    centre = (52.2053, 0.1218)
+    x = (52.2053, 0.1218)
     r = 10
-    x = stations_within_radius(stations, centre, r)
+    stations_in_radius = stations_within_radius(stations, x, r)
     
-    print(x)
+    print(stations_in_radius)
 
 if __name__ == "__main__":
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
