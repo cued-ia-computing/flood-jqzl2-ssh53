@@ -1,4 +1,4 @@
-from floodsystem.geo import stations_by_distance, rivers_with_station, stations_by_river
+from floodsystem.geo import stations_by_distance, rivers_with_station, stations_by_river, stations_within_radius
 from floodsystem.stationdata import build_station_list
 from haversine import haversine, Unit
 
@@ -26,3 +26,11 @@ def test_rivers_with_station():
 def test_stations_by_river():
     stations = build_station_list()
     x = stations_by_river(stations)
+
+def test_stations_within_radius():
+    stations = build_station_list()
+    centre = (52.2053, 0.1218)
+    r = 0
+    x = stations_within_radius(stations, centre, r)
+
+    assert len(x) == 0
