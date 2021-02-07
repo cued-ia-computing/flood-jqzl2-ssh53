@@ -50,7 +50,16 @@ def stations_by_river(stations):
    return stations_by_river
     
 
-       
+def stations_within_radius(stations, centre, r):
+
+    stations_within_radius = []
+
+    for station in stations:
+        distance = haversine(centre, station.coord)
+        if r >= distance:
+            stations_within_radius.append(station.name)
+
+    return sorted(stations_within_radius)
             
         
    
