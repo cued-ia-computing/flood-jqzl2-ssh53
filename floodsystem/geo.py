@@ -52,6 +52,7 @@ def stations_by_river(stations):
 
 def stations_within_radius(stations, centre, r):
 
+    rivers = rivers_with_station(stations)
     stations_within_radius = []
 
     for station in stations:
