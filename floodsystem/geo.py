@@ -60,3 +60,17 @@ def stations_within_radius(stations, centre, r):
             stations_within_radius.append(station.name)
 
     return sorted(stations_within_radius)
+
+
+def rivers_by_station_number(stations, N):
+
+    rivers_by_station_number = {}
+    station_number
+
+    for river in rivers:
+        rivers_by_station_number[river] = []
+
+     for station in stations:
+        rivers_by_station_number[station_number] = len(stations_by_river[river])
+
+    return sorted(rivers_by_station_number)
