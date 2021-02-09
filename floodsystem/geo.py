@@ -65,7 +65,7 @@ def stations_within_radius(stations, centre, r):
 def rivers_by_station_number(stations, N):
 
     rivers_by_station_number = {}
-    station_number
+    station_number = []
 
     for river in rivers:
         rivers_by_station_number[river] = []
