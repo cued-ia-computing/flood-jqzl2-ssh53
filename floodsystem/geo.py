@@ -69,11 +69,19 @@ def rivers_by_station_number(stations, N):
     rivers = rivers_with_station(stations)
     riverdict = stations_by_river(stations)
     riverlist = []
+   
 
     for river in rivers:
-        riverlist.append((len(riverdict[river]), river))
+        station_number = len(riverdict[river])
+        riverlist.append((station_number, river))
+
+    for station_number in riverlist:
+        
+        y = N
+        if station_number == (riverlist[N][x[0]] for x in sorted(riverlist, reverse = True)):
+            y += 1
 
 
-    rivers_by_station_number = [(x[1], x[0]) for x in sorted(riverlist, reverse = True)[:N]]
+    rivers_by_station_number = [(x[1], x[0]) for x in sorted(riverlist, reverse = True)[:y]]
 
     return rivers_by_station_number
