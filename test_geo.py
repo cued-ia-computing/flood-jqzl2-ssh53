@@ -36,7 +36,7 @@ def test_rivers_with_station():
 def test_stations_by_river():
     stations = build_station_list()
     x = stations_by_river(stations)
-    for river, stations_list in x:
+    for river, stations_list in x.items():
         for station in stations_list:
             assert station.river == river
 
