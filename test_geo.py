@@ -18,14 +18,20 @@ def test_rivers_with_station():
     x = rivers_with_station(stations)
     for river in x:
         y = False
+        count = 0
+        for i in x:
+            if x == river:
+                count += 1
+            else:
+                pass
         for station in stations:
             if station.river == river:
                 y = True
-                break
-            
+                
             else:
                 pass
-        assert y == True
+        assert y == True 
+        assert count == 1
         
 def test_stations_by_river():
     stations = build_station_list()
