@@ -20,7 +20,7 @@ def test_rivers_with_station():
         y = False
         count = 0
         for i in x:
-            if x == river:
+            if i == river:
                 count += 1
             else:
                 pass
