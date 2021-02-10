@@ -40,6 +40,6 @@ def test_rivers_by_station_number():
 
     x = rivers_by_station_number(stations, N)
 
-    assert x =  [('River Thames', 55), ('River Avon', 32), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24), ('River Calder', 22), ('River Severn', 21), ('River Stour', 19), ('River Ouse', 18), ('River Rother', 17), ('River Colne', 17), ('River Trent', 16), ('River Nene', 16), ('River Witham', 15), ('River Wey', 14), ('River Tame', 14), ('River Wharfe', 13), ('River Medway', 13), ('River Don', 13), ('River Test', 11), ('River Mole', 11)]
+    assert x ==  [('River Thames', 55), ('River Avon', 32), ('River Great Ouse', 30), ('River Derwent', 25), ('River Aire', 24), ('River Calder', 22), ('River Severn', 21), ('River Stour', 19), ('River Ouse', 18), ('River Rother', 17), ('River Colne', 17), ('River Trent', 16), ('River Nene', 16), ('River Witham', 15), ('River Wey', 14), ('River Tame', 14), ('River Wharfe', 13), ('River Medway', 13), ('River Don', 13), ('River Test', 11), ('River Mole', 11)]
 
    
