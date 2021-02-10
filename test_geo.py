@@ -41,10 +41,12 @@ def test_stations_within_radius():
 
 def test_rivers_by_station_number():
     
+    N = 2
     stations = build_station_list()
     x = rivers_by_station_number(stations, N)
     rivers = rivers_with_station(stations)
-
-    assert (rivers_by_station_number[0][1]) >= (len(riverdict[river]) for river in rivers
-
-   
+    riverdict = stations_by_river(stations)
+    
+    for river in rivers:
+        assert (x[0][1]) >= len(riverdict[river])
+        assert (x[0]) >= (x[1])
