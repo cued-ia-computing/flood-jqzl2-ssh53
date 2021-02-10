@@ -6,21 +6,27 @@ def test_stations_by_distance():
     stations = build_station_list()
     p = (52.2053, 0.1218)
     x = stations_by_distance(stations, p)
-    y = []
-    for i in x:
-        y.append((i[0].name, i[0].town))
-    assert y[:10] == [('Cambridge Jesus Lock', 'Cambridge'), ('Bin Brook', 'Cambridge'), 
-    ("Cambridge Byron's Pool", 'Grantchester'), ('Cambridge Baits Bite', 'Milton'), 
-    ('Girton', 'Girton'), ('Haslingfield Burnt Mill', 'Haslingfield'), 
-    ('Oakington', 'Oakington'), ('Stapleford', 'Stapleford'), 
-    ('Comberton', 'Comberton'), ('Dernford', 'Great Shelford')]
+    for i in range(0, len(x)):
+        if i = 0:
+            pass
+        
+        else:
+            assert x[i][1] >= x[i-1][1]
     
-    
-
 def test_rivers_with_station():
     stations = build_station_list()
     x = rivers_with_station(stations)
-
+    for river in x:
+        y = False
+        for station in stations:
+            if station.river == river:
+                y = True
+                break
+            
+            else:
+                pass
+        assert y == True
+        
 def test_stations_by_river():
     stations = build_station_list()
     x = stations_by_river(stations)
