@@ -4,7 +4,7 @@ from floodsystem.stationdata import build_station_list
 def run():
     
     stations = build_station_list()
-    N = 9
+    N = 10
 
     x = rivers_by_station_number(stations, N)
 
