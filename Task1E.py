@@ -1,4 +1,4 @@
-from floodsystem.geo import rivers_by_station_number, stations_by_river
+from floodsystem.geo import rivers_by_station_number, stations_by_river, rivers_with_station
 from floodsystem.stationdata import build_station_list
 
 def run():

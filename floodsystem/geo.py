@@ -52,7 +52,7 @@ def stations_by_river(stations):
 
 def stations_within_radius(stations, centre, r):
 
-    rivers = rivers_with_station(stations)
+
     stations_within_radius = []
 
     for station in stations:
@@ -65,13 +65,15 @@ def stations_within_radius(stations, centre, r):
 
 def rivers_by_station_number(stations, N):
 
-    rivers_by_station_number = {}
-    station_number = []
+    rivers_by_station_number = []
+    rivers = rivers_with_station(stations)
+    riverdict = stations_by_river(stations)
+    riverlist = []
 
     for river in rivers:
-        rivers_by_station_number[river] = []
+        riverlist.append((len(riverdict[river]), river))
 
-    for station in stations:
-        rivers_by_station_number[station_number] = len(stations_by_river[river])
 
-    return sorted(rivers_by_station_number)
+    rivers_by_station_number = [(x[1], x[0]) for x in sorted(riverlist, reverse = True)[:N]]
+
+    return rivers_by_station_number
