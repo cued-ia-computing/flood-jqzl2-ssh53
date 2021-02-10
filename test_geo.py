@@ -7,12 +7,12 @@ def test_stations_by_distance():
     p = (52.2053, 0.1218)
     y = []
     for i in x:
-        y.append((i[0].name, i[0].town, i[1]))
-    assert y[:10] == [('Cambridge Jesus Lock', 'Cambridge', 0.8402364350834995), ('Bin Brook', 'Cambridge', 2.502274086951454), 
-    ("Cambridge Byron's Pool", 'Grantchester', 4.0720438555077125), ('Cambridge Baits Bite', 'Milton', 5.115589516578674), 
-    ('Girton', 'Girton', 5.227070345811418), ('Haslingfield Burnt Mill', 'Haslingfield', 7.044388165868453), 
-    ('Oakington', 'Oakington', 7.128249171700346), ('Stapleford', 'Stapleford', 7.265694306995238), 
-    ('Comberton', 'Comberton', 7.7350743760373675), ('Dernford', 'Great Shelford', 7.993861351711722)]
+        y.append((i[0].name, i[0].town))
+    assert y[:10] == [('Cambridge Jesus Lock', 'Cambridge'), ('Bin Brook', 'Cambridge'), 
+    ("Cambridge Byron's Pool", 'Grantchester'), ('Cambridge Baits Bite', 'Milton'), 
+    ('Girton', 'Girton'), ('Haslingfield Burnt Mill', 'Haslingfield'), 
+    ('Oakington', 'Oakington'), ('Stapleford', 'Stapleford'), 
+    ('Comberton', 'Comberton'), ('Dernford', 'Great Shelford')]
     
     
 
