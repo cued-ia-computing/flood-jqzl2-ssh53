@@ -5,6 +5,7 @@ from haversine import haversine, Unit
 def test_stations_by_distance():
     stations = build_station_list()
     p = (52.2053, 0.1218)
+    x = stations_by_distance(stations, p)
     y = []
     for i in x:
         y.append((i[0].name, i[0].town))
