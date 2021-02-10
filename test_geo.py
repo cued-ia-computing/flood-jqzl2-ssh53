@@ -7,7 +7,7 @@ def test_stations_by_distance():
     p = (52.2053, 0.1218)
     x = stations_by_distance(stations, p)
     for i in range(0, len(x)):
-        if i = 0:
+        if i == 0:
             pass
         
         else:
