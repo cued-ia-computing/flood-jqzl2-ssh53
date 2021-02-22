@@ -12,6 +12,6 @@ def test_stations_level_over_threshold():
         if i == 0:
             pass
         elif i > 0:
-            assert x[i][1] < x[i - 1][1]
+            assert x[i][1] <= x[i - 1][1]
 
     
