@@ -1,5 +1,6 @@
 import numpy as np 
 from floodsystem.stationdata import build_station_list, update_water_levels
+from floodsystem.flood import stations_level_over_threshold
 
 def test_stations_level_over_threshold():
     tol = np.random.randn()
