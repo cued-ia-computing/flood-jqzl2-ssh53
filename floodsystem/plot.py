@@ -8,8 +8,8 @@ def plot_water_levels(station, dates, levels):
     plt.xticks(rotation=45);
     plt.title(station.name)
     plt.tight_layout()
-    plt.plot(station.typical_range[0])
-    plt.plot(station.typical_range[1])
+    plt.plot(dates, station.typical_range[0])
+    plt.plot(dates, station.typical_range[1])
     plt.show()
     
 
