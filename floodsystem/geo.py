@@ -81,3 +81,4 @@ def rivers_by_station_number(stations, N):
         y+=1
             
     return rivers_by_station_number[:y]
+
