@@ -29,12 +29,16 @@ def stations_highest_rel_level(stations, N):
     for station in stations:
         if station.typical_range_consistent() == False or station.relative_water_level() == None:
             pass
-        elif station.typical_range_consistent() == True or station.relative_water_level() != None:
+        elif station.typical_range_consistent() == True and station.relative_water_level() != None:
             level = station.relative_water_level()
             stationlist.append((station, level))
 
         
     stations_highest_rel_level = sorted_by_key(stationlist, 1, reverse = True)
 
+    x = []
 
-    return stations_highest_rel_level[:N]
+    for station in stations_highest_rel_level:
+        x.append(station[0])
+
+    return x[:N]
