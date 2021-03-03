@@ -28,18 +28,25 @@ def test_stations_highest_rel_level():
             assert highest_stations[k].relative_water_level() <= highest_stations[k - 1].relative_water_level()
     
     for station in stations:
-        for i in highest_stations:
-            if station == i:
-                x = True
-                break
+        if station.relative_water_level() != None:
+            for i in highest_stations:
+                if station == i:
+                    x = True
+                    break
 
-            elif station != i:
-                x = False
+                elif station != i:
+                    x = False
             
-        if x == False:
-            assert station.relative_water_level() <= highest_stations[N-1].relative_water_level()
+            if x == False:
+                assert station.relative_water_level() <= highest_stations[N-1].relative_water_level()
+            
+            elif x == True:
+                pass
+
+        else: 
+            pass
     
-    assert len(highest_stations) == N 
+        assert len(highest_stations) == N 
 
 
 
