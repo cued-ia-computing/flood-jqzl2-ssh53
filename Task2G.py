@@ -10,7 +10,6 @@ def run():
     stations = build_station_list()
     update_water_levels(stations)
     x = stations_by_town(stations)
-    print(x)
     risk_of_towns = []
     risk_levels = ("Severe", "High", "Moderate", "Low")
     
@@ -22,11 +21,19 @@ def run():
             risk_of_towns.append((town, risk_levels[-1]))
         
         elif len(y) > 0:
-            N = math.trunc(len(y) / 3)
-            z = stations_highest_rel_level(y, N)
+            z = []
+            for i in y: 
+                z.append(i[0])
+            if len(z) >= 5:    
+                N = 5
+
+            elif len(z) < 5:
+                N = len(z)
+
+            z = stations_highest_rel_level(z, N)
             for station in z:
                 dt = 5
-                dates, levels = fetch_measure_levels(station[0].measure_id, dt=datetime.timedelta(days=dt))
+                dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
                 rate = rate_of_river_level_change(dates, levels)
                 forecasted_level = station.latest_level + rate
                 forecasted_rel_level = forecasted_level / (station.typical_range[1] - station.typical_range[0])
@@ -37,14 +44,14 @@ def run():
                 elif forecasted_rel_level < 3:
                     pass
             
-            if (risk_stations / N) <= (1 / 3):
-                risk_of_towns.append(town, risk_levels[2])
+            if (risk_stations / len(x[town])) <= (1 / 3):
+                risk_of_towns.append((town, risk_levels[2]))
             
-            elif (risk_stations / N) > (1 / 3) and (risk_stations / N) <= (2 / 3):
-                risk_of_towns.append(town, risk_levels[1])
+            elif (risk_stations / len(x[town])) > (1 / 3) and (risk_stations / len(x[town])) <= (2 / 3):
+                risk_of_towns.append((town, risk_levels[1]))
             
-            elif (risk_stations / N) > (2 / 3) and (risk_stations / N) <= 1:
-                risk_of_towns.append(town, risk_levels[0])
+            elif (risk_stations / len(x[town])) > (2 / 3) and (risk_stations / len(x[town])) <= 1:
+                risk_of_towns.append((town, risk_levels[0]))
     
     print("*** Towns with the greatest risk of flooding ***")
 
