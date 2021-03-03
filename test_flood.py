@@ -19,19 +19,28 @@ def test_stations_highest_rel_level():
     update_water_levels(stations)
     N = np.random.randint(1, len(stations))
     highest_stations = stations_highest_rel_level(stations, N)
-    
-    for i in stations, j in highest_stations:
-        if i == j:
-            pass 
-        
-        elif i != j:
-            assert i.relative_water_level() <= highest_stations[N-1].relative_water_level()
+    x = False
     
     for k in range(0, len(highest_stations)):
         if k == 0:
             pass
         elif k > 0:
             assert highest_stations[k].relative_water_level() <= highest_stations[k - 1].relative_water_level()
+    
+    for station in stations:
+        for i in highest_stations:
+            if station == i:
+                x = True
+                break
+
+            elif station != i:
+                x = False
+            
+            if x == False:
+                assert station.relative_water_level() <= highest_stations[N-1].relative_water_level()
+    
+    assert len(highest_stations) == N 
+
 
 
     
