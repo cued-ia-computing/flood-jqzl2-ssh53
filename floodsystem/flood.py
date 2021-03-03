@@ -23,6 +23,7 @@ def stations_highest_rel_level(stations, N):
 
     stations_highest_rel_level = []
     stationlist = []
+    
 
     for station in stations:
         if station.typical_range_consistent() == False or station.relative_water_level() == None:
