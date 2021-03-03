@@ -6,7 +6,7 @@ def run():
 
     update_water_levels(stations)
 
-    x = stations_highest_rel_level(stations, 10)
+    x = stations_highest_rel_level(stations, 5)
 
     for i in x:
         print(i.name + " " + str(i.relative_water_level()))
