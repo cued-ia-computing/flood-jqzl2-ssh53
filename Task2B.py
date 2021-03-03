@@ -3,9 +3,9 @@ from floodsystem.stationdata import build_station_list, update_water_levels
 
 def run():
     stations = build_station_list()
-    print(type(stations[0].latest_level))
+    
     update_water_levels(stations)
-    print(type(stations[0].latest_level))
+    
     x = stations_level_over_threshold(stations, 0.8)
     for i in x:
         print(i[0].name + " " + str(i[1]))

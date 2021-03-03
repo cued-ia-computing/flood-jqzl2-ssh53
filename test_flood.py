@@ -1,6 +1,6 @@
 import numpy as np 
 from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.flood import stations_level_over_threshold
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 
 def test_stations_level_over_threshold():
     tol = np.random.randn()
@@ -13,5 +13,8 @@ def test_stations_level_over_threshold():
             pass
         elif i > 0:
             assert x[i][1] <= x[i - 1][1]
+
+def test_stations_highest_rel_level():
+    
 
     
