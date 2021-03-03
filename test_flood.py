@@ -36,8 +36,8 @@ def test_stations_highest_rel_level():
             elif station != i:
                 x = False
             
-            if x == False:
-                assert station.relative_water_level() <= highest_stations[N-1].relative_water_level()
+        if x == False:
+            assert station.relative_water_level() <= highest_stations[N-1].relative_water_level()
     
     assert len(highest_stations) == N 
 
