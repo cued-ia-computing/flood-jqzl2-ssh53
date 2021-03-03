@@ -82,3 +82,30 @@ def rivers_by_station_number(stations, N):
             
     return rivers_by_station_number[:y]
 
+def towns_with_station(stations):
+    towns_with_station = []
+    
+    for station in stations:
+        towns_with_station.append(station.town)
+    
+    towns_with_station = set(towns_with_station)
+    
+    return towns_with_station
+
+def stations_by_town(stations):
+    stations_by_town = {}
+    towns = towns_with_station(stations)
+
+    for town in towns:
+        stations_by_town[town] = []
+        for station in stations:
+           if station.town == town:
+               stations_by_town[town].append(station)
+            
+           else:
+               pass
+    
+    return stations_by_town
+
+
+
