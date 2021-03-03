@@ -93,19 +93,19 @@ def towns_with_station(stations):
     return towns_with_station
 
 def stations_by_town(stations):
-    stations_by_town = {}
-    towns = towns_with_station(stations)
 
-    for town in towns:
-        stations_by_town[town] = []
-        for station in stations:
+   stations_by_town = {}
+
+   towns = towns_with_station(stations)
+
+   for town in towns:
+       stations_by_town[town] = []
+
+       for station in stations:
            if station.town == town:
                stations_by_town[town].append(station)
             
            else:
                pass
-    
-    return stations_by_town
 
-
-
+   return stations_by_town

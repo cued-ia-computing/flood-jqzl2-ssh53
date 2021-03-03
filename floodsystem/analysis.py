@@ -17,7 +17,8 @@ def rate_of_river_level_change(dates, levels, p = 1):
     derivative = poly.deriv()
     x = date2num(dates)
     x = np.array(x)
-    return derivative(x[-1] - d0)
+    rate = derivative(x[-1] - d0)
+    return rate
 
 
 

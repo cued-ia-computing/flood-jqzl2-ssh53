@@ -1,12 +1,59 @@
 from floodsystem.geo import towns_with_station, stations_by_town
 from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.flood import stations_highest_rel_level
+from floodsystem.flood import stations_highest_rel_level, stations_level_over_threshold
 from floodsystem.datafetcher import fetch_measure_levels
-from floodsystem.plot import plot_water_level_with_fit
+from floodsystem.analysis import rate_of_river_level_change
+import datetime
+import math
 
 def run():
     stations = build_station_list()
+    update_water_levels(stations)
+    x = stations_by_town(stations)
+    print(x)
+    risk_of_towns = []
+    risk_levels = ("Severe", "High", "Moderate", "Low")
     
+    for town in x:
+        y = stations_level_over_threshold(x[town], 1.0)
+        risk_stations = 0
+        
+        if len(y) == 0:
+            risk_of_towns.append((town, risk_levels[-1]))
+        
+        elif len(y) > 0:
+            N = math.trunc(len(y) / 3)
+            z = stations_highest_rel_level(y, N)
+            for station in z:
+                dt = 5
+                dates, levels = fetch_measure_levels(station[0].measure_id, dt=datetime.timedelta(days=dt))
+                rate = rate_of_river_level_change(dates, levels)
+                forecasted_level = station.latest_level + rate
+                forecasted_rel_level = forecasted_level / (station.typical_range[1] - station.typical_range[0])
+
+                if forecasted_rel_level >= 3:
+                    risk_stations += 1
+                
+                elif forecasted_rel_level < 3:
+                    pass
+            
+            if (risk_stations / N) <= (1 / 3):
+                risk_of_towns.append(town, risk_levels[2])
+            
+            elif (risk_stations / N) > (1 / 3) and (risk_stations / N) <= (2 / 3):
+                risk_of_towns.append(town, risk_levels[1])
+            
+            elif (risk_stations / N) > (2 / 3) and (risk_stations / N) <= 1:
+                risk_of_towns.append(town, risk_levels[0])
+    
+    print("*** Towns with the greatest risk of flooding ***")
+
+    for town in risk_of_towns:
+        if town[1] == risk_levels[0] or town[1] == risk_levels[1]:
+            print(town[0], town[1])
+        
+        else:
+            pass
 
 if __name__ == "__main__":
     print("*** Task 2G: CUED Part IA Flood Warning System ***")
