@@ -33,7 +33,6 @@ def stations_highest_rel_level(stations, N):
             level = station.relative_water_level()
             stationlist.append((station, level))
 
-        
     stations_highest_rel_level = sorted_by_key(stationlist, 1, reverse = True)
 
     x = []
