@@ -17,7 +17,7 @@ def test_stations_level_over_threshold():
 def test_stations_highest_rel_level():
     stations = build_station_list()
     update_water_levels(stations)
-    N = random.randint(1, len(stations))
+    N = np.random.randint(1, len(stations))
     highest_stations = stations_highest_rel_level(stations, N)
     
     for i in stations, j in highest_stations:
