@@ -18,7 +18,7 @@ def run():
         risk_stations = 0
         
         if len(y) == 0:
-            risk_of_towns.append((town, risk_levels[-1]))
+            risk_of_towns.append((town, risk_levels[-1])) # If a town has no monitoring stations where the water level is exceeding the typical high, decide that the risk of flooding in that town is low.
         
         elif len(y) > 0:
             z = []
@@ -38,13 +38,13 @@ def run():
                 forecasted_level = station.latest_level + rate
                 forecasted_rel_level = forecasted_level / (station.typical_range[1] - station.typical_range[0])
 
-                if forecasted_rel_level >= 3:
+                if forecasted_rel_level >= 3: # Count the number of stations which are recording significantly higher than normal levels, setting a relative level of 3 or above as significantly high.
                     risk_stations += 1
                 
                 elif forecasted_rel_level < 3:
                     pass
             
-            if (risk_stations / len(x[town])) <= (1 / 3):
+            if (risk_stations / len(x[town])) <= (1 / 3):  # Evaluate whether a town is at moderate, high or severe risk of flooding by calculating the proportion of its monitoring stations which are experiencing significantly higher than normal levels.
                 risk_of_towns.append((town, risk_levels[2]))
             
             elif (risk_stations / len(x[town])) > (1 / 3) and (risk_stations / len(x[town])) <= (2 / 3):
@@ -56,7 +56,7 @@ def run():
     print("*** Towns with the greatest risk of flooding ***")
 
     for town in risk_of_towns:
-        if town[1] == risk_levels[0] or town[1] == risk_levels[1]:
+        if town[1] == risk_levels[0] or town[1] == risk_levels[1]: # Give warnings for towns at high and severe risk.
             print(town[0], town[1])
         
         else:
